@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Calculadora</title>
+    </h:head>
+    <h:body>
+        <h:form >  
+            <table border="0"  align="center">
+
+                <td>
+                    <p:inputText type="text" value="#{managedCalculadora.operacion}" size="50" id="ct"  maxlength="100"   > </p:inputText>
+                </td>
+                <td>
+                    <p:inputTextarea  rows="5" cols="30"  maxlength="100" autoResize="false" id="at" addLine="#{managedCalculadora.operacion}"/>
+                </td>   
+                <tr>
+                    <td>
+                        <p:commandButton value="^"     update="ct" action="#{managedCalculadora.escribirEcuacion('^')}"></p:commandButton>
+                        <p:commandButton value="raiz(" update="ct,at" actionListener="#{managedCalculadora.escribirEcuacion('raiz(') }" ></p:commandButton>
+                        <p:commandButton value="Log("  update="ct" actionListener="#{managedCalculadora.escribirEcuacion('Log(') }"></p:commandButton>
+                        <p:commandButton value="Sen("  update="ct" actionListener="#{managedCalculadora.escribirEcuacion('Sen(') }" ></p:commandButton>
+                        <p:commandButton value="Cos("  update="ct" actionListener="#{managedCalculadora.escribirEcuacion('Cos(') }"></p:commandButton>
+                        <p:commandButton value="Tang(" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('Tang(')}"></p:commandButton>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p:commandButton value="C" update="ct" actionListener="#{managedCalculadora.borrarCampo()}" ></p:commandButton>
+                        <p:commandButton value="CE" update="ct" actionListener="#{managedCalculadora.borrarAtras()}"></p:commandButton>
+                        <p:commandButton value="(" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('(')}"></p:commandButton>
+                        <p:commandButton value=")" update="ct" actionListener="#{managedCalculadora.escribirEcuacion(')')}"></p:commandButton>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p:commandButton value="7"  update="ct" actionListener="#{managedCalculadora.escribirEcuacion('7')}"></p:commandButton>
+                        <p:commandButton value="8" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('8')}"></p:commandButton>
+                        <p:commandButton value="9" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('9')}"></p:commandButton>
+                        <p:commandButton value="/" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('/')}"></p:commandButton>
+                    </td>  
+                    <tr>
+                        <td>
+                            <p:commandButton value="6" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('6')}"></p:commandButton>
+                            <p:commandButton value="5" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('5')}"></p:commandButton>
+                            <p:commandButton value="4" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('4')}"></p:commandButton>
+                            <p:commandButton value="*" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('*')}"></p:commandButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:commandButton value="1" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('1')}"></p:commandButton>
+                            <p:commandButton value="2" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('2')}"></p:commandButton>
+                            <p:commandButton value="3"  update="ct" actionListener="#{managedCalculadora.escribirEcuacion('3')}"></p:commandButton>
+                            <p:commandButton value="-" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('-')}"></p:commandButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:commandButton value="0" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('0')}" ></p:commandButton>
+                            <p:commandButton value="," update="ct" actionListener="#{managedCalculadora.escribirEcuacion(',')}"></p:commandButton>
+                            <p:commandButton value="=" update="at" actionListener="#{managedCalculadora.generarResultado()}"></p:commandButton>
+                            <p:commandButton value="+" update="ct" actionListener="#{managedCalculadora.escribirEcuacion('+')}"></p:commandButton>
+                        </td>
+                    </tr>
+                </tr>  
+            </table>
+        </h:form>
+    </h:body>
+</html>
+
